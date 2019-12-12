@@ -8,12 +8,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Random;
 
-public class AddPackage extends Creds{
+public class AddPackage extends Creds {
     private WebDriver driver = new ChromeDriver();
     private Actions actions = new Actions(driver);
     Random rand = new Random();
@@ -32,7 +29,7 @@ public class AddPackage extends Creds{
     }
 
     @Test(description = "Add a package")
-    public void AddPackage()  throws InterruptedException {
+    public void AddPackage() throws InterruptedException {
         runDriver();
         driver.navigate().refresh();
         Thread.sleep(1000);

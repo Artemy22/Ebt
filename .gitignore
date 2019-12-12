@@ -1,2 +1,7 @@
 # Project exclude paths
 /target/
+/src/main/java/Creds.java
+/target
+Lesson13task11.iml
+.idea
+allure-results
