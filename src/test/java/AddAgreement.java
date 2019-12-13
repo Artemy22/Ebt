@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.util.Random;
 
-public class AddPackage extends Creds {
+public class AddAgreement extends Creds {
     private WebDriver driver = new ChromeDriver();
     private Actions actions = new Actions(driver);
     Random rand = new Random();
@@ -28,7 +28,7 @@ public class AddPackage extends Creds {
 
     }
 
-    @Test(description = "Add a new package", groups = {"highPriority"})
+    @Test(description = "Add a new agreement", groups = {"highPriority"})
     public void AddPackage() throws InterruptedException {
         runDriver();
         driver.navigate().refresh();
@@ -85,21 +85,39 @@ public class AddPackage extends Creds {
         /*
         find the last added package
          */
+
         driver.findElement(By.xpath("//*[@id=\"gridPackageOverview\"]/div/div[2]/kendo-grid/div/div/div/table/thead/tr/th[3]/a")).click(); // sort 1st
-        driver.findElement(By.xpath("//*[@id=\"gridPackageOverview\"]/div/div[2]/kendo-grid/div/div/div/table/thead/tr/th[3]/a")).click(); // sort 2nd
+        driver.findElement(By.xpath("//*[@id=\"gridPackageOverview\"]/div/div[2]/kendo-grid/div/div/div/table/thead/tr/th[3]/a")).click(); // sort 2nd -> the new package is in 1st row
         Thread.sleep(2000);
 
+        /*
+        add agreement to existent package
+         */
+        System.out.println("something found");
+        driver.findElement(By.xpath("//*[@id=\"gridPackageOverview\"]/div/div[2]/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr[1]/td[2]/label")).click();
+        driver.findElement(By.xpath("//*[@id=\"action546\"]/span/i")).click(); // go through the first row package
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("/html/body/app-home/div/div/div[2]/app-package/app-package-detail/kendo-dialog/div[2]/kendo-dialog-actions/button[1]")).click(); // clicked on YES btn to add criteria
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//*[@id=\"k-tabstrip-tab-0\"]")).click(); // click on "Agreements" tab
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//*[@id=\"k-tabstrip-tabpanel-0\"]/app-package-agreement/div[1]/button/i")).click(); // click on +
+        actions.sendKeys(Keys.TAB).perform();
+        actions.sendKeys(Keys.TAB).perform();
+        actions.sendKeys(startDate).perform();
+        actions.sendKeys(Keys.TAB).perform();
+        actions.sendKeys(endYear).perform();
+        actions.sendKeys(Keys.TAB).perform();
+        actions.sendKeys(descriptionAndSearch).perform();
+        actions.sendKeys(Keys.TAB).perform();
+        actions.sendKeys(Keys.TAB).perform();
+        actions.sendKeys(Keys.ENTER).perform();
     }
 
     @AfterClass
-    public void finishDriver() throws InterruptedException {
-        String bodyText = driver.findElement(By.xpath("//*[@id=\"gridPackageOverview\"]/div/div[2]/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr[1]/td[6]")).getText();
-        Assert.assertTrue(bodyText.contains(descriptionAndSearch), descriptionAndSearch);
-        driver.findElement(By.xpath("//*[@id=\"gridPackageOverview\"]/div/div[2]/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr[1]/td[2]/label")).click();
-        driver.findElement(By.xpath("//*[@id=\"gridPackageOverview\"]/div/div[2]/div/div[5]")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//*[@id=\"gridPackageOverview\"]/app-action-dialog/kendo-dialog/div[2]/kendo-dialog-actions/button[1]")).click();
-        Thread.sleep(1000);
+    public void finishDriver() {
+//        String bodyText = driver.findElement(By.xpath("//*[@id=\"gridAgreement\"]/div/div[2]/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr/td[5]")).getText();
+//        Assert.assertTrue(bodyText.contains(descriptionAndSearch), descriptionAndSearch);
         driver.close();
     }
 }
