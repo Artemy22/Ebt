@@ -25,6 +25,7 @@ public class AddAgreement extends Creds {
     @BeforeClass
     public void runDriver() {
         options.addArguments("--no-sandbox");
+        options.setBinary("/usr/bin/google-chrome");
         System.setProperty("webdriver.chrome.driver", "chromedriver");
         options.setExperimentalOption("useAutomationExtension", false);
         driver.manage().window().maximize();
