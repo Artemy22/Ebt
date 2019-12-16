@@ -25,8 +25,9 @@ public class AddPackage extends Creds {
     @BeforeClass
     public void runDriver() {
         System.setProperty("webdriver.chrome.driver", "/home/artem/IdeaProjects/chromedriver");
-        options.addArguments("--no-sandbox");
+
         options.addArguments("--disable-dev-shm-usage");
+
         driver.manage().window().maximize();
         driver.navigate().to("https://app.sand.e-bate.net/login?returnUrl=%2Fdashboard");
 
