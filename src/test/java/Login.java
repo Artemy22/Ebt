@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -9,11 +10,14 @@ import org.testng.annotations.Test;
 
 public class Login extends Creds {
     private WebDriver driver = new ChromeDriver();
+    ChromeOptions options = new ChromeOptions();
     private Actions actions = new Actions(driver);
 
     @BeforeClass
     public void runDriver() {
         System.setProperty("webdriver.chrome.driver", "/home/artem/IdeaProjects/chromedriver");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
         driver.manage().window().maximize();
         driver.navigate().to("https://app.sand.e-bate.net/login?returnUrl=%2Fdashboard");
     }
