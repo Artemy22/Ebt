@@ -12,8 +12,8 @@ import org.testng.annotations.Test;
 import java.util.Random;
 
 public class AddAgreement extends Creds {
-    private WebDriver driver = new ChromeDriver();
     ChromeOptions options = new ChromeOptions();
+    WebDriver driver = new ChromeDriver(options);
     private Actions actions = new Actions(driver);
     Random rand = new Random();
     int yearStart = rand.nextInt(10);
@@ -25,10 +25,9 @@ public class AddAgreement extends Creds {
     @BeforeClass
     public void runDriver() {
         System.setProperty("webdriver.chrome.driver", "chromedriver");
-        options.addArguments("--headless");
+        options.setExperimentalOption("useAutomationExtension", false);
         driver.manage().window().maximize();
         driver.navigate().to("https://app.sand.e-bate.net/login?returnUrl=%2Fdashboard");
-
     }
 
     @Test(description = "Add a new agreement", groups = {"highPriority"})

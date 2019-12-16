@@ -9,14 +9,16 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class Login extends Creds {
-    private WebDriver driver = new ChromeDriver();
+
     ChromeOptions options = new ChromeOptions();
+    WebDriver driver = new ChromeDriver(options);
     private Actions actions = new Actions(driver);
 
     @BeforeClass
     public void runDriver() {
         System.setProperty("webdriver.chrome.driver", "chromedriver");
-        options.addArguments("--headless");
+        options.setExperimentalOption("useAutomationExtension", false);
+
         driver.manage().window().maximize();
         driver.navigate().to("https://app.sand.e-bate.net/login?returnUrl=%2Fdashboard");
     }
