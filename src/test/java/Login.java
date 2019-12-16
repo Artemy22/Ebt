@@ -11,17 +11,17 @@ import org.testng.annotations.Test;
 
 public class Login extends Creds {
 
-    //ChromeOptions options = new ChromeOptions();
-    WebDriver driver = new FirefoxDriver();
-    //WebDriver driver = new ChromeDriver(options);
+    ChromeOptions options = new ChromeOptions();
+    //WebDriver driver = new FirefoxDriver();
+    WebDriver driver = new ChromeDriver(options);
     private Actions actions = new Actions(driver);
 
     @BeforeClass
     public void runDriver() {
-//        options.addArguments("--no-sandbox");
-//        options.setBinary("/usr/bin/google-chrome");
-//        System.setProperty("webdriver.chrome.driver", "chromedriver");
-//        options.setExperimentalOption("useAutomationExtension", false);
+        options.addArguments("--no-sandbox");
+        options.setBinary("/usr/bin/google-chrome");
+        System.setProperty("webdriver.chrome.driver", "chromedriver");
+        options.setExperimentalOption("useAutomationExtension", false);
         System.setProperty("webdriver.gecko.driver", "geckodriver");
         driver.manage().window().maximize();
         driver.navigate().to("https://app.sand.e-bate.net/login?returnUrl=%2Fdashboard");
