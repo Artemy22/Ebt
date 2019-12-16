@@ -25,7 +25,7 @@ public class AddPackage extends Creds {
     @BeforeClass
     public void runDriver() {
         System.setProperty("webdriver.chrome.driver", "chromedriver");
-        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
 
         driver.manage().window().maximize();
         driver.navigate().to("https://app.sand.e-bate.net/login?returnUrl=%2Fdashboard");
