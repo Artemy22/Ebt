@@ -22,7 +22,7 @@ public class Login extends Creds {
         options.setBinary("/usr/bin/google-chrome");
         System.setProperty("webdriver.chrome.driver", "chromedriver");
         options.setExperimentalOption("useAutomationExtension", false);
-        System.setProperty("webdriver.gecko.driver", "geckodriver");
+        //System.setProperty("webdriver.gecko.driver", "geckodriver");
         driver.manage().window().maximize();
         driver.navigate().to("https://app.sand.e-bate.net/login?returnUrl=%2Fdashboard");
     }
