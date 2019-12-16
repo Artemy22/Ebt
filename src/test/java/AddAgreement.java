@@ -2,15 +2,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import java.util.Random;
 
 public class AddAgreement extends Creds {
     private WebDriver driver = new ChromeDriver();
+    ChromeOptions options = new ChromeOptions();
     private Actions actions = new Actions(driver);
     Random rand = new Random();
     int yearStart = rand.nextInt(10);
@@ -22,6 +25,8 @@ public class AddAgreement extends Creds {
     @BeforeClass
     public void runDriver() {
         System.setProperty("webdriver.chrome.driver", "/home/artem/IdeaProjects/chromedriver");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
         driver.manage().window().maximize();
         driver.navigate().to("https://app.sand.e-bate.net/login?returnUrl=%2Fdashboard");
 
