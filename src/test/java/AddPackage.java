@@ -13,9 +13,9 @@ import org.testng.annotations.Test;
 import java.util.Random;
 
 public class AddPackage extends Creds {
-    //ChromeOptions options = new ChromeOptions();
-    //WebDriver driver = new ChromeDriver(options);
-    WebDriver driver = new FirefoxDriver();
+    ChromeOptions options = new ChromeOptions();
+    WebDriver driver = new ChromeDriver(options);
+    //WebDriver driver = new FirefoxDriver();
     private Actions actions = new Actions(driver);
     Random rand = new Random();
     int yearStart = rand.nextInt(10);
@@ -26,11 +26,11 @@ public class AddPackage extends Creds {
 
     @BeforeClass
     public void runDriver() {
-//        options.addArguments("--no-sandbox");
-//        options.setBinary("/usr/bin/google-chrome");
-//        System.setProperty("webdriver.chrome.driver", "chromedriver");
-//        options.setExperimentalOption("useAutomationExtension", false);
-        System.setProperty("webdriver.gecko.driver", "geckodriver");
+        options.addArguments("--no-sandbox");
+        options.setBinary("/usr/bin/google-chrome");
+        System.setProperty("webdriver.chrome.driver", "chromedriver");
+        options.setExperimentalOption("useAutomationExtension", false);
+       // System.setProperty("webdriver.gecko.driver", "geckodriver");
         driver.manage().window().maximize();
         driver.navigate().to("https://app.sand.e-bate.net/login?returnUrl=%2Fdashboard");
     }
