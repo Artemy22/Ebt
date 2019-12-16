@@ -16,6 +16,7 @@ public class Login extends Creds {
 
     @BeforeClass
     public void runDriver() {
+        options.addArguments("--no-sandbox");
         System.setProperty("webdriver.chrome.driver", "chromedriver");
         options.setExperimentalOption("useAutomationExtension", false);
 
