@@ -24,7 +24,7 @@ public class AddPackage extends Creds {
 
     @BeforeClass
     public void runDriver() {
-        System.setProperty("webdriver.chrome.driver", "/home/artem/IdeaProjects/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "chromedriver");
 
         options.addArguments("--disable-dev-shm-usage");
 
