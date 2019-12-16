@@ -7,7 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import java.util.Random;
 
 public class AddAgreement extends Creds {
@@ -29,7 +28,7 @@ public class AddAgreement extends Creds {
     }
 
     @Test(description = "Add a new agreement", groups = {"highPriority"})
-    public void AddPackage() throws InterruptedException {
+    public void AddAgreement() throws InterruptedException {
         runDriver();
         driver.navigate().refresh();
         Thread.sleep(1000);

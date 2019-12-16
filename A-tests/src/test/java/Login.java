@@ -18,8 +18,10 @@ public class Login extends Creds {
         driver.navigate().to("https://app.sand.e-bate.net/login?returnUrl=%2Fdashboard");
     }
 
+
+
     @Test(description = "Login functionality", groups = {"highPriority"})
-    public void Login() throws InterruptedException {
+    public void TestLogin() throws InterruptedException {
         runDriver();
         driver.navigate().refresh();
         Thread.sleep(1000);
