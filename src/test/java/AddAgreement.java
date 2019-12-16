@@ -26,6 +26,7 @@ public class AddAgreement extends Creds {
     public void runDriver() {
         System.setProperty("webdriver.chrome.driver", "chromedriver");
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--single-process");
         driver.manage().window().maximize();
         driver.navigate().to("https://app.sand.e-bate.net/login?returnUrl=%2Fdashboard");
 
