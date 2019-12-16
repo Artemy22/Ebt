@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/Users/romantyshchenko/Course_QA_Auto/AQA_Courses/lesson_011">
+        <classes>
+            <!-- <class name="folder.Annotation">
+                 <methods>
+                    &lt;!&ndash; <include name="test1"/>
+                     <include name="test2"/>&ndash;&gt;
+                 </methods>
+             </class>-->
+            <!--<class name="folder.Regresion">-->
+            <!--<methods>-->
+            <!--<include name="trueRegressionTest"/>-->
+            <!--<include name="falseRegressionTest"/>-->
+            <!--</methods>-->
+            <!--</class>-->
+            <class name="Login">
+
+            </class>
+            <class name="AddAgreement">
+
+            </class>
+            <class name="AddPackage">
+
+            </class>
+        </classes>
+    </test>
+<!--    <suite-files>-->
+<!--        <suite-file path="regresion.xml"/>-->
+<!--    </suite-files>-->
+</suite>
