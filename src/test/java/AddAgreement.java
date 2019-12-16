@@ -25,11 +25,7 @@ public class AddAgreement extends Creds {
     @BeforeClass
     public void runDriver() {
         System.setProperty("webdriver.chrome.driver", "chromedriver");
-        options.addArguments("--headless");
-        options.addArguments("--disable-gpu");
-        options.addArguments("--single-process");
         options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
         driver.manage().window().maximize();
         driver.navigate().to("https://app.sand.e-bate.net/login?returnUrl=%2Fdashboard");
 
