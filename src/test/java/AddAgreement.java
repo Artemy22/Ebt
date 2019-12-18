@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Random;
@@ -24,7 +25,7 @@ public class AddAgreement extends Creds {
     String descriptionAndSearch;
 
 
-    @BeforeClass
+    @BeforeMethod
     public void runDriver() {
         options.addArguments("--no-sandbox");
         options.setBinary("/usr/bin/google-chrome");
