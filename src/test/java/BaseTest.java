@@ -19,7 +19,7 @@ public abstract class BaseTest extends Creds {
 
     @AfterMethod
     public void cleanup() {
-//        driver.manage().deleteAllCookies();
-//        driver.close();
+        driver.manage().deleteAllCookies();
+        driver.close();
     }
 }

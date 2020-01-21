@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="VoCActivate" parallel="false" thread-count="5">
-    <parameter name="browserType" value="Chrome"/>
-    <parameter name="browserProperty" value="chromedriver"/>
-    <test verbose="2" preserve-order="true" name="Name">
+<suite name="EbateDev" parallel="false" thread-count="5">
+    <test verbose="2" name="Name">
         <classes>
-            <class name="Login">
+            <class name="Login_EBD_177">
             </class>
-            <class name="AddAgreement">
+            <class name="View_a_package_EBD_216">
             </class>
-            <class name="AddPackage">
+            <class name="View_an_agreement_EBD_213">
             </class>
         </classes>
     </test>

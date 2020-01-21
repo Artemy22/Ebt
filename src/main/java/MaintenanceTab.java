@@ -1,13 +1,9 @@
-import org.apache.http.util.Asserts;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class MaintenanceTab {
-
-    @FindBy(xpath = "//*[@id=\"navbar-collapse\"]/ul/li[1]")
-    private WebElement MaintenMain;
 
     @FindBy(xpath = "/html/body/app-home/div/div/div[2]/app-maintenance/company-maintenance/section[1]/ol/li[3]")
     private WebElement CheckThat;
@@ -67,12 +63,7 @@ public class MaintenanceTab {
         PageFactory.initElements(driver, this);
     }
 
-    public MaintenanceTab clickMaintenMain() {
-        MaintenMain.click();
-        return this;
-    }
-
-    public MaintenanceTab clickCheckThat() {
+    public MaintenanceTab checkThat() {
         CheckThat.isDisplayed();
         return this;
     }
