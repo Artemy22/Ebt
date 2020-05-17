@@ -1,9 +1,10 @@
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-public abstract class BaseTest{
+import java.util.concurrent.TimeUnit;
+
+public abstract class BaseTest {
 
     public WebDriver driver;
     public LoginTab loginTab;
@@ -12,6 +13,7 @@ public abstract class BaseTest{
     @BeforeMethod
     public void setup() throws InterruptedException {
         driver = WebDriverFactory.getDriver(DriverType.CHROME);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.navigate().to("https://app.test.e-bate.net");
         loginTab = new LoginTab(driver);
@@ -23,9 +25,9 @@ public abstract class BaseTest{
         loginTenantTab.clickSaveBtn();
     }
 
-    @AfterMethod
-    public void cleanup() {
-        driver.manage().deleteAllCookies();
-        driver.close();
-    }
+//    @AfterMethod
+//    public void cleanup() {
+//        driver.manage().deleteAllCookies();
+//        driver.close();
+//    }
 }
