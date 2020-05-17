@@ -3,18 +3,24 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-public abstract class BaseTest extends Creds {
+public abstract class BaseTest{
 
     public WebDriver driver;
+    public LoginTab loginTab;
+    public LoginTenantTab loginTenantTab;
 
     @BeforeMethod
-    public void setup() {
+    public void setup() throws InterruptedException {
         driver = WebDriverFactory.getDriver(DriverType.CHROME);
         driver.manage().window().maximize();
-        driver.navigate().to("https://app.dev.e-bate.net");
-        driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys(getEmail());
-        driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys(getPass());
-        driver.findElement(By.xpath("//*[@id=\"save\"]")).click();
+        driver.navigate().to("https://app.test.e-bate.net");
+        loginTab = new LoginTab(driver);
+        loginTab.fillInEmail();
+        loginTab.fillInPassword();
+        loginTab.clickLoginBtn();
+        Thread.sleep(1000);
+        loginTenantTab = new LoginTenantTab(driver);
+        loginTenantTab.clickSaveBtn();
     }
 
     @AfterMethod

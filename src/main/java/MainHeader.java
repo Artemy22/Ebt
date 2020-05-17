@@ -32,7 +32,7 @@ public class MainHeader {
     @FindBy(xpath = "//*[@id=\"userMenu\"]")
     private WebElement userMenu;
 
-    @FindBy(xpath = "//*[@id=\"signOut\"]")
+    @FindBy(xpath = "//*[@id=\"userDropdown\"]/li[3]/div[1]")
     private WebElement signOut;
 
     public MainHeader(WebDriver driver) {
