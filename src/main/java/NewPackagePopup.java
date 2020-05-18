@@ -53,6 +53,16 @@ public class NewPackagePopup {
     @FindBy(xpath = "/html/body/app-home/div/div/div[2]/app-package/app-package/app-package-dialog/kendo-dialog/div[2]/kendo-dialog-actions/button[2]")
     private WebElement cancelBtn;
 
+    @FindBy(xpath = "//*[@id=\"companySelectionAccountType\"]")
+    private WebElement accountTypeDropDown;
+
+    @FindBy(xpath = "//*[@id=\"companiesSearch\"]/span/kendo-searchbar")
+    private WebElement companyNameDropDown;
+
+    @FindBy(xpath = "//*[@id=\"csButtons\"]/button[1]")
+    private WebElement setChosenCompany;
+
+
     public NewPackagePopup(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
@@ -134,6 +144,21 @@ public class NewPackagePopup {
 
     public NewPackagePopup clickCancelBtn() {
         cancelBtn.click();
+        return this;
+    }
+
+    public NewPackagePopup clickAccountTypeDropDown() {
+        accountTypeDropDown.click();
+        return this;
+    }
+
+    public NewPackagePopup clickCompanyNameDropDown() {
+        companyNameDropDown.click();
+        return this;
+    }
+
+    public NewPackagePopup setChosenCompany() {
+        setChosenCompany.click();
         return this;
     }
 }
