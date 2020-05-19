@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import java.util.Random;
 
-public class AddPackageForCustomerSingleCompanyParentAccountOngoing extends BaseTest {
+public class AddPackageForCustomerSingleCompanyDeliveryAccountOngoing extends BaseTest {
 
     private MainHeader mainHeader;
     public LoginTab loginTab;
@@ -30,8 +30,9 @@ public class AddPackageForCustomerSingleCompanyParentAccountOngoing extends Base
         packagesTab = new PackagesTab(driver);
     }
 
-    @Test(description = "Add a new package", groups = {"highPriority"})
-    public void AddPackageForCustomerSingleCompanyParentAccountOngoingP() throws InterruptedException {
+    @Test
+            //(description = "Add a new package", groups = "highPriority")
+    public void AddPackageForCustomerSingleCompanyDeliveryAccountOngoingP() throws InterruptedException {
         Actions actions = new Actions(driver);
         mainHeader.clickPricingManagHeader();
         pricingManagementTab.clickPackages();
@@ -39,18 +40,16 @@ public class AddPackageForCustomerSingleCompanyParentAccountOngoing extends Base
         newPackagePopup.clickCustomerType();
         newPackagePopup.clickSingleCompany();
         newPackagePopup.clickSingleCompanyAccountTypeDropDown();
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 4; i++) {
             actions.sendKeys(Keys.ARROW_DOWN).perform();
         }
-        actions.sendKeys(Keys.ENTER).perform();  // Parent Account is chosen
+        actions.sendKeys(Keys.ENTER).perform();  // Delivery Account is chosen
         newPackagePopup.clickCompanyNameDropDown();
-        actions.sendKeys("par").perform();
+        actions.sendKeys("del").perform();
         Thread.sleep(1000);
         actions.sendKeys(Keys.ARROW_DOWN).perform();
         actions.sendKeys(Keys.ENTER).perform(); // first company is chosen
         newPackagePopup.setChosenCompany();
-
-
         newPackagePopup.clickPeriodInput();
         for (int i = 0; i < 6; i++) {
             actions.sendKeys(Keys.ARROW_DOWN).perform();  // Period date ONGOING
@@ -65,15 +64,14 @@ public class AddPackageForCustomerSingleCompanyParentAccountOngoing extends Base
         String endYear = "311220" + yearEndFirst + yearEndSecond;  // End date 31/12/20 + random int + random int
         actions.sendKeys(endYear).perform();
         newPackagePopup.clickDescription();
-        descriptionAndSearch = "Selenium package for Parent Account + " + new Random().nextInt();
+        descriptionAndSearch = "Selenium package for Delivery Account + " + new Random().nextInt();
         actions.sendKeys(descriptionAndSearch).perform();
         newPackagePopup.clickBudget();
         actions.sendKeys(endYear).perform();
         newPackagePopup.clickTarget();
         actions.sendKeys(startDate).perform();
         newPackagePopup.clickComments();
-        actions.sendKeys("Parent Account").perform();
-        Thread.sleep(1000);
+        actions.sendKeys("Delivery Account").perform();
         newPackagePopup.clickSaveBtn();
         packagesTab.clickOrderById();
         packagesTab.clickOrderById();
@@ -87,4 +85,12 @@ public class AddPackageForCustomerSingleCompanyParentAccountOngoing extends Base
         Assert.assertTrue(bodyText.contains(descriptionAndSearch), descriptionAndSearch);
         driver.close();
     }
+
 }
+
+
+//        for (int i = 0; i < new Random().nextInt(20); i++) {
+//            actions.sendKeys(Keys.DOWN).perform();
+//        }
+//        actions.sendKeys(Keys.ENTER).perform(); // company name Satin
+

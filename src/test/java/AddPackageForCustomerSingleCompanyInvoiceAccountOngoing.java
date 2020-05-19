@@ -30,8 +30,9 @@ public class AddPackageForCustomerSingleCompanyInvoiceAccountOngoing extends Bas
         packagesTab = new PackagesTab(driver);
     }
 
-    @Test(description = "Add a new package", groups = {"highPriority"})
-    public void AddPackageCustomerAllCompaniesOngoing() throws InterruptedException {
+    @Test
+            //(description = "Add a new package", groups = {"highPriority"})
+    public void AddPackageForCustomerSingleCompanyInvoiceAccOngoing() throws InterruptedException {
         Actions actions = new Actions(driver);
         mainHeader.clickPricingManagHeader();
         pricingManagementTab.clickPackages();
@@ -86,10 +87,3 @@ public class AddPackageForCustomerSingleCompanyInvoiceAccountOngoing extends Bas
     }
 
 }
-
-
-//        for (int i = 0; i < new Random().nextInt(20); i++) {
-//            actions.sendKeys(Keys.DOWN).perform();
-//        }
-//        actions.sendKeys(Keys.ENTER).perform(); // company name Satin
-

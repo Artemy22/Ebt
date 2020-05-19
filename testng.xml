@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="EbateDev" parallel="false" thread-count="5">
-    <test verbose="2" name="Name">
+    <test verbose="2" name="test EBD">
         <classes>
-            <class name="Login_EBD_177">
+            <class name="AddPackageForCustomerSingleCompanyInvoiceAccountOngoing">
             </class>
-            <class name="View_a_package_EBD_216">
+            <class name="AddPackageForCustomerAllCompaniesOngoing">
             </class>
-            <class name="View_an_agreement_EBD_213">
+            <class name="AddPackageForCustomerSingleCompanyTradingGroupOngoing">
+            </class>
+            <class name="AddPackageForCustomerSingleCompanyDeliveryAccountOngoing">
+            </class>
+            <class name="AddPackageForCustomerSingleCompanyDistributorOngoing">
+            </class>
+            <class name="AddPackageForCustomerSingleCompanyLandlordOngoing">
+            </class>
+            <class name="AddPackageForCustomerSingleCompanyManufacturerOngoing">
+            </class>
+            <class name="AddPackageForCustomerSingleCompanyContractorOngoing">
+            </class>
+            <class name="AddPackageForCustomerSingleCompanyParentAccountOngoing">
             </class>
         </classes>
     </test>
