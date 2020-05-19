@@ -30,8 +30,9 @@ public class AddPackageForCustomerSingleCompanyTradingGroupOngoing extends BaseT
         packagesTab = new PackagesTab(driver);
     }
 
-    @Test(description = "Add a new package", groups = {"highPriority"})
-    public void AddPackageCustomerAllCompaniesOngoing() throws InterruptedException {
+    @Test
+            //(description = "Add a new package", groups = {"highPriority"})
+    public void AddPackageForCustomerSingleCompanyTradingGroupOngoingP() throws InterruptedException {
         Actions actions = new Actions(driver);
         mainHeader.clickPricingManagHeader();
         pricingManagementTab.clickPackages();

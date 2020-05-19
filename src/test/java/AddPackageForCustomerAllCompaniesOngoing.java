@@ -30,7 +30,8 @@ public class AddPackageForCustomerAllCompaniesOngoing extends BaseTest {
         packagesTab = new PackagesTab(driver);
     }
 
-    @Test(description = "Add a new package", groups = {"highPriority"})
+    @Test
+            //(description = "Add a new package", groups = {"highPriority"})
     public void AddPackageCustomerAllCompaniesOngoing() throws InterruptedException {
         Actions actions = new Actions(driver);
         mainHeader.clickPricingManagHeader();
