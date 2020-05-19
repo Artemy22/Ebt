@@ -21,6 +21,8 @@
             </class>
             <class name="AddPackageForCustomerSingleCompanyParentAccountOngoing">
             </class>
+            <class name="AddPackageForCustomerSingleCompanyMerchantDistributionOngoing">
+            </class>
         </classes>
     </test>
 </suite>
